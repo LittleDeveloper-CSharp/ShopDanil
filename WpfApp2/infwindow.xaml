@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApp2.infwindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="infwindow" Height="450" Width="800">
+    <Grid>
+        <Viewbox Stretch="fill">
+            <Canvas Width="901" Height="451">
+                <Rectangle Fill="Azure" RenderTransformOrigin="0.5,0.5" Height="451" Width="901" />
+                <Rectangle Fill="#FFE6FFFF" RenderTransformOrigin="0.5,0.5" Height="65" Width="901" Stroke="Black" />
+                <Label Content="Информация о компании" Canvas.Left="10" Height="55" Width="753" FontSize="36"/>
+                <Label Content="Компания «Два ствола» — первопроходец на отечественном оружейном рынке. На сегодняшний день &#xD;&#xA;«Два ствола» — это крупнейшая в России оптово-розничная сеть по продаже охотничьего, &#xD;&#xA;спортивного оружия и боеприпасов, товаров и услуг в области охотничьего снаряжения и аксессуаров&#xD;&#xA;для активного отдыха, одежды и обуви для охоты и туризма, сопутствующих товаров. Компания &#xD;&#xA;«Два ствола» имеет крепкие партнерские связи с наиболее значимыми мировыми брендами — &#xD;&#xA;Benelli, Beretta, Blaser, Browning, Sauer, Swarovski, Zeiss, Kahles, Norma, Clever, RWS и многими другими&#xD;&#xA;компаниями. За 25 лет работы на российском рынке «Два ствола» стала крупнейшим оружейным &#xD;&#xA;холдингом. Одно из наших главных достижений — надежные деловые отношения с российскими &#xD;&#xA;партнерами. Внимание к актуальным тенденциям мирового оружейного рынка позволяет компании &#xD;&#xA;предлагать российским покупателям еще больше новой и качественной продукции от ведущих&#xD;&#xA;производителей отрасли." Canvas.Left="10" Canvas.Top="70" Height="361" Width="881" FontSize="18"/>
+            </Canvas>
+        </Viewbox>
+    </Grid>
+</Window>
