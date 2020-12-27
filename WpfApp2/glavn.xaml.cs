@@ -13,10 +13,10 @@ namespace WpfApp2
         int id;
         
 
-        public glavn(string name, string id, int kol)
+        public glavn(string name, string id, int kol, bool isAdmin)
         {
             InitializeComponent();
-            Name = name;
+            lbName.Content = name;
             idprod.Content = id;
             KOL = kol;
             command.Connection = connection;
@@ -25,9 +25,10 @@ namespace WpfApp2
             int idOrder = 0;
             nomchek.Content = int.TryParse(command.ExecuteScalar().ToString(), out idOrder) ? idOrder + 1 : 1;
             connection.Close();
+            PanelAdmin.Visibility = isAdmin ? Visibility.Visible : Visibility.Hidden;
         }
 
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=I5EPebrqPsJBVM7lPoa2;database=danya");
+        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=1234;database=danya");
         DataBase db = new DataBase();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         DataTable g = new DataTable();

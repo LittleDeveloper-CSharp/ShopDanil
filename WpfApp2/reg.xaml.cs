@@ -63,20 +63,21 @@ namespace WpfApp2
 
 
             
-                command = new MySqlCommand("INSERT INTO `Danya`.`консультанты`(`Логин`,`Пароль`,`ФИО`,`Дата_рождения`,`Дата_поступления`,`Адрес`,`Телефон`) Values (@log,@pass,@fio,@DR,@DP,@Adr,@Telf)", db.GetConnection());
+            command = new MySqlCommand("INSERT INTO `Danya`.`продавцы`(`Логин`,`Пароль`,`ФИО`,`Дата_рождения`,`Дата_поступления`,`Адрес`,`Телефон`) Values (@log,@pass,@fio,@DR,@DP,@Adr,@Telf)", db.GetConnection());
 
-                command.Parameters.Add("@log", MySqlDbType.VarChar).Value = LogTB.Text;
-                command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = ParTB.Password;
-                command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = Fio.Text;
-                command.Parameters.Add("@DR", MySqlDbType.VarChar).Value = DateR.Text;
-                command.Parameters.Add("@DP", MySqlDbType.VarChar).Value = DateP.Text;
-                command.Parameters.Add("@Adr", MySqlDbType.VarChar).Value = Adr.Text;
-                command.Parameters.Add("@Telf", MySqlDbType.VarChar).Value = Tel.Text;
+            command.Parameters.Add("@log", MySqlDbType.VarChar).Value = LogTB.Text;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = ParTB.Password;
+            command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = Fio.Text;
+            command.Parameters.Add("@DR", MySqlDbType.VarChar).Value = DateR.Text;
+            command.Parameters.Add("@DP", MySqlDbType.VarChar).Value = DateP.Text;
+            command.Parameters.Add("@Adr", MySqlDbType.VarChar).Value = Adr.Text;
+            command.Parameters.Add("@Telf", MySqlDbType.VarChar).Value = Tel.Text;
 
-                MessageBox.Show("Аккаунт зарегестрирован");
-                avtor av = new avtor();
-                av.Show();
-                this.Close();
+            MessageBox.Show("Аккаунт зарегестрирован");
+            avtor av = new avtor();
+            command.ExecuteNonQuery();
+            av.Show();
+            this.Close();
 
             db.closeConnection();   
 
@@ -227,8 +228,18 @@ namespace WpfApp2
                 Tel.Text = "Введите номер телефона";
                 Tel.Foreground = new SolidColorBrush(Colors.Gray);
             }
-        }
+        }  
+    }
 
-       
+    class TypeEmployee
+    {
+        public string Code;
+        public string Description;
+
+        public TypeEmployee(string code, string description)
+        {
+            Code = code;
+            Description = description;
+        }
     }
 }

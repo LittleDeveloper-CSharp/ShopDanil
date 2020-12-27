@@ -27,7 +27,7 @@ namespace WpfApp2
         }
 
         
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=I5EPebrqPsJBVM7lPoa2;database=danya");
+        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=1234;database=danya");
         DataBase db = new DataBase();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         DataTable g = new DataTable();

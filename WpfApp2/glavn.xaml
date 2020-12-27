@@ -13,6 +13,7 @@
                 <Rectangle Fill="Azure" RenderTransformOrigin="0.5,0.5" Height="451" Width="901" />
 
                 <Label Content="Добро пожаловать" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="169" Canvas.Top="5"/>
+                <Label Content="Должность" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="169" Canvas.Top="33"/>
                 <Label x:Name="lbName"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Loaded="lbName_Loaded" Height="26" Canvas.Left="289" Canvas.Top="5"/>
                 <GroupBox Header="Управление" HorizontalAlignment="Left" Height="189" VerticalAlignment="Top" Width="153" Canvas.Left="737" Canvas.Top="70"/>
                 <DataGrid x:Name="DGZ" HorizontalAlignment="Left" Height="312" VerticalAlignment="Top" Width="722" Loaded="DGZ_Loaded_1" SelectedCellsChanged="DGZ_SelectedCellsChanged" Canvas.Left="10" Canvas.Top="81" CanUserAddRows="False"/>
@@ -29,13 +30,15 @@
                 <Label x:Name="summ"  Canvas.Left="125" Canvas.Top="418" Height="23" Width="345" />
                 <Label Content="№Чека" Canvas.Left="169" Canvas.Top="55"/>
                 <Label x:Name="nomchek" Canvas.Left="233" Canvas.Top="55" Height="26" Width="29" />
-                <GroupBox Header="Панель админа" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="153" Canvas.Left="737" Canvas.Top="255"/>
-                <Button OpacityMask="#FF9E4141" x:Name="obn" Foreground="#FF744545" Content="Обновить" Canvas.Left="748" Canvas.Top="228" Width="128" Background="White" Click="obn_Click"/>
-                <Button OpacityMask="#FF9E4141" x:Name="oxr" Foreground="#FF744545" Content="Добавить охрану" Canvas.Left="748" Canvas.Top="356" Width="128" Background="White" Click="oxr_Click"/>
-                <Button OpacityMask="#FF9E4141" x:Name="spsotr" Foreground="#FF744545" Content="Добавить сотрудника" Canvas.Left="748" Canvas.Top="323" Width="128" Background="White" Click="spsotr_Click"/>
-                <Button OpacityMask="#FF9E4141" x:Name="dobtov" Foreground="#FF744545" Content="Добавить товар" Canvas.Left="748" Canvas.Top="287" Width="128" Background="White" Click="dobtov_Click"/>
-                <Label Content="Должность" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="169" Canvas.Top="33"/>
-                <Label x:Name="post" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="255" Canvas.Top="33" Width="174" Height="22"/>
+                <GroupBox Visibility="Hidden" Header="Панель админа" x:Name="PanelAdmin" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="153" Canvas.Left="737" Canvas.Top="255">
+                    <Canvas>
+                    <Button OpacityMask="#FF9E4141" x:Name="obn" Foreground="#FF744545" Content="Обновить" Canvas.Left="748" Canvas.Top="228" Width="128" Background="White" Click="obn_Click"/>
+                    <Button OpacityMask="#FF9E4141" x:Name="oxr" Foreground="#FF744545" Content="Добавить охрану" Canvas.Left="748" Canvas.Top="356" Width="128" Background="White" Click="oxr_Click"/>
+                    <Button OpacityMask="#FF9E4141" x:Name="spsotr" Foreground="#FF744545" Content="Добавить сотрудника" Canvas.Left="748" Canvas.Top="323" Width="128" Background="White" Click="spsotr_Click"/>
+                    <Button OpacityMask="#FF9E4141" x:Name="dobtov" Foreground="#FF744545" Content="Добавить товар" Canvas.Left="748" Canvas.Top="287" Width="128" Background="White" Click="dobtov_Click"/>
+                    <Label x:Name="post" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="255" Canvas.Top="33" Width="174" Height="22"/>
+                    </Canvas>
+                </GroupBox>
             </Canvas>
         </Viewbox>
 

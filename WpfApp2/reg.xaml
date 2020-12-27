@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp2"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title= " " Height="717.049" Width="590.92" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title= " " Height="807.984" Width="590.92" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
 
         <Rectangle Fill="Azure" Margin="0,93,0,0" RenderTransformOrigin="0.5,0.5" />
@@ -15,7 +15,7 @@
 
         
         <Label Content="Регистрация" Margin="142,10,137,624" FontSize="48"/>
-        <Button Content="Зарегестрироваться" Margin="125,627,100,25" Background="#FFEDFFF7" OpacityMask="#FF9E4141" Foreground="#FF744545" FontSize="16" Click="Button_Click_1"/>
+        <Button Content="Зарегестрироваться" Margin="100,711,100,42" Background="#FFEDFFF7" OpacityMask="#FF9E4141" Foreground="#FF744545" FontSize="16" Click="Button_Click_1"/>
         <Label Content="Логин" Margin="0,121,400,537" FontSize="36"/>
         <Label Content="Пароль" Margin="0,198,445,453" FontSize="36"/>
         <TextBox x:Name="LogTB" HorizontalAlignment="Left" Height="26" Margin="162,139,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" GotFocus="LogTB_GotFocus" LostFocus="LogTB_LostFocus" FontSize="20" />
@@ -32,5 +32,7 @@
         <TextBox x:Name="DateP" HorizontalAlignment="Left" Height="28" Margin="340,431,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210" GotFocus="DateP_GotFocus" LostFocus="DateP_LostFocus" FontSize="20"/>
         <TextBox x:Name="Adr" HorizontalAlignment="Left" Height="28" Margin="165,485,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210" GotFocus="Adr_GotFocus" LostFocus="Adr_LostFocus" FontSize="20"/>
         <TextBox x:Name="Tel" HorizontalAlignment="Left" Height="28" Margin="165,553,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210" GotFocus="Tel_GotFocus" LostFocus="Tel_LostFocus" FontSize="20"/>
+        <ComboBox Margin="217,629,123,136" x:Name=""/>
+        <Label Content="Должность" HorizontalAlignment="Left" Margin="10,615,0,0" VerticalAlignment="Top" Height="57" Width="202" FontSize="36"/>
     </Grid>
 </Window>

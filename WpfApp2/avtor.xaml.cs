@@ -68,7 +68,9 @@ namespace WpfApp2
                 string name = (string)table.Rows[0]["ФИО"];
                 string id = table.Rows[0]["id_Продавца"].ToString();
 
-                glavn gl = new glavn(name,id,kol);
+                var isAdmin = table.Rows[0]["Type_Employee_Code"].ToString() == "AS";
+
+                glavn gl = new glavn(name,id,kol, isAdmin);
                 gl.Show();
                 this.Close();
                 
