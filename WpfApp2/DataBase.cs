@@ -9,7 +9,7 @@ namespace WpfApp2
 {
     class DataBase
     {
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=I5EPebrqPsJBVM7lPoa2;database=danya"); /*I5EPebrqPsJBVM7lPoa2*/ /*Qwe123456*/
+        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=1234;database=danya"); /*1234*/ /*Qwe123456*/
         public void openConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)

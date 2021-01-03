@@ -1,17 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WpfApp2
 {
@@ -46,41 +35,37 @@ namespace WpfApp2
             Tel.Foreground = new SolidColorBrush(Colors.Gray);
         }
 
-        
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             avtor avtor = new avtor();
             avtor.Show();
             this.Close();
         }
-        DataBase db = new DataBase();
-        MySqlCommand command = new MySqlCommand();
+
+        private DataBase db = new DataBase();
+        private MySqlCommand command = new MySqlCommand();
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             db.openConnection();
 
+            command = new MySqlCommand("INSERT INTO `Danya`.`консультанты`(`Логин`,`Пароль`,`ФИО`,`Дата_рождения`,`Дата_поступления`,`Адрес`,`Телефон`) Values (@log,@pass,@fio,@DR,@DP,@Adr,@Telf)", db.GetConnection());
 
-            
-                command = new MySqlCommand("INSERT INTO `Danya`.`консультанты`(`Логин`,`Пароль`,`ФИО`,`Дата_рождения`,`Дата_поступления`,`Адрес`,`Телефон`) Values (@log,@pass,@fio,@DR,@DP,@Adr,@Telf)", db.GetConnection());
+            command.Parameters.Add("@log", MySqlDbType.VarChar).Value = LogTB.Text;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = ParTB.Password;
+            command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = Fio.Text;
+            command.Parameters.Add("@DR", MySqlDbType.VarChar).Value = DateR.Text;
+            command.Parameters.Add("@DP", MySqlDbType.VarChar).Value = DateP.Text;
+            command.Parameters.Add("@Adr", MySqlDbType.VarChar).Value = Adr.Text;
+            command.Parameters.Add("@Telf", MySqlDbType.VarChar).Value = Tel.Text;
 
-                command.Parameters.Add("@log", MySqlDbType.VarChar).Value = LogTB.Text;
-                command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = ParTB.Password;
-                command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = Fio.Text;
-                command.Parameters.Add("@DR", MySqlDbType.VarChar).Value = DateR.Text;
-                command.Parameters.Add("@DP", MySqlDbType.VarChar).Value = DateP.Text;
-                command.Parameters.Add("@Adr", MySqlDbType.VarChar).Value = Adr.Text;
-                command.Parameters.Add("@Telf", MySqlDbType.VarChar).Value = Tel.Text;
+            MessageBox.Show("Аккаунт зарегестрирован");
+            command.ExecuteNonQuery();
+            avtor av = new avtor();
+            av.Show();
+            this.Close();
 
-                MessageBox.Show("Аккаунт зарегестрирован");
-                avtor av = new avtor();
-                av.Show();
-                this.Close();
-
-            db.closeConnection();   
-
-
+            db.closeConnection();
         }
 
         private void LogTB_GotFocus(object sender, RoutedEventArgs e)
@@ -119,7 +104,6 @@ namespace WpfApp2
             }
         }
 
-
         private void Pass_GotFocus(object sender, RoutedEventArgs e)
         {
             Pass.Visibility = Visibility.Hidden;
@@ -131,12 +115,10 @@ namespace WpfApp2
                 Pass.Text = "";
                 ParTB.Foreground = new SolidColorBrush(Colors.Black);
             }
-
         }
 
         private void Pass_LostFocus(object sender, RoutedEventArgs e)
         {
-
             if (Pass.Text == "")
             {
                 Pass.Text = "Введите пароль";
@@ -153,8 +135,6 @@ namespace WpfApp2
                 Pass.Text = "Введите пароль";
                 Pass.Foreground = new SolidColorBrush(Colors.Gray);
             }
-
-
         }
 
         private void DateR_GotFocus(object sender, RoutedEventArgs e)
@@ -228,7 +208,5 @@ namespace WpfApp2
                 Tel.Foreground = new SolidColorBrush(Colors.Gray);
             }
         }
-
-       
     }
 }

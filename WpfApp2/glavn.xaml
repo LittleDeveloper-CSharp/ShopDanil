@@ -29,7 +29,7 @@
                 <Label x:Name="summ"  Canvas.Left="125" Canvas.Top="418" Height="23" Width="345" />
                 <Label Content="№Чека" Canvas.Left="169" Canvas.Top="55"/>
                 <Label x:Name="nomchek" Canvas.Left="233" Canvas.Top="55" Height="26" Width="29" />
-                <GroupBox Header="Панель админа" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="153" Canvas.Left="737" Canvas.Top="255"/>
+                <GroupBox Header="Панель админа" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="153" Canvas.Left="737" Canvas.Top="255" x:Name="PanelAdmin"/>
                 <Button OpacityMask="#FF9E4141" x:Name="obn" Foreground="#FF744545" Content="Обновить" Canvas.Left="748" Canvas.Top="228" Width="128" Background="White" Click="obn_Click"/>
                 <Button OpacityMask="#FF9E4141" x:Name="oxr" Foreground="#FF744545" Content="Добавить охрану" Canvas.Left="748" Canvas.Top="356" Width="128" Background="White" Click="oxr_Click"/>
                 <Button OpacityMask="#FF9E4141" x:Name="spsotr" Foreground="#FF744545" Content="Добавить сотрудника" Canvas.Left="748" Canvas.Top="323" Width="128" Background="White" Click="spsotr_Click"/>

@@ -18,7 +18,7 @@
         <TextBox x:Name="Tel" HorizontalAlignment="Left" Height="28" Margin="175,376,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"  FontSize="20"/>
         <DataGrid x:Name="DGO" HorizontalAlignment="Left" Height="300" Margin="574,45,-368,0" VerticalAlignment="Top" Width="586" Loaded="DGO_Loaded"/>
         <Button Content="Добавить" HorizontalAlignment="Left" Margin="574,373,0,0" VerticalAlignment="Top" Width="162" Height="28" Click="Button_Click"/>
-        <Button Content="Удалить" HorizontalAlignment="Left" Margin="998,373,-368,0" VerticalAlignment="Top" Width="162" Height="28"/>
+        <Button Content="Удалить" HorizontalAlignment="Left" Margin="998,373,-368,0" VerticalAlignment="Top" Width="162" Height="28" Click="Button_Click_1"/>
         <Label Content="зп" HorizontalAlignment="Left" Margin="10,277,0,0" VerticalAlignment="Top" Height="50" Width="124" FontSize="36"/>
         <TextBox x:Name="ZP" HorizontalAlignment="Left" Height="28" Margin="134,299,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"   FontSize="20"/>
 

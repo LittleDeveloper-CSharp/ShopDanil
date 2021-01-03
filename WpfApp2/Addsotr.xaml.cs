@@ -26,7 +26,7 @@ namespace WpfApp2
             InitializeComponent();
         }
 
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=I5EPebrqPsJBVM7lPoa2;database=danya");
+        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=1234;database=danya");
         DataBase db = new DataBase();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         DataTable g = new DataTable();
@@ -53,8 +53,19 @@ namespace WpfApp2
             command.Parameters.Add("@TEL", MySqlDbType.VarChar).Value = Tel.Text;
             command.ExecuteNonQuery();
             MessageBox.Show("консультант добавлен добавлен");
-
+            DGS_Loaded(null, null);
             db.closeConnection();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(DGS.SelectedIndex != -1)
+            {
+                db.openConnection();
+                command = new MySqlCommand($"DELECT FROM `консультанты` WHERE `id_Консультанта` = '{(DGS.SelectedItem as DataRowView)[0]}'", db.GetConnection());
+                DGS_Loaded(null, null);
+                db.closeConnection();
+            }
         }
     }
 }

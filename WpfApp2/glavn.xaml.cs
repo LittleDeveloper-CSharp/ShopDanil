@@ -9,16 +9,14 @@ namespace WpfApp2
 {
     public partial class glavn : Window
     {
-        int KOL;
-        int id;
-        
+        int id; 
 
-        public glavn(string name, string id, int kol)
+        public glavn(string name, string id, string type)
         {
             InitializeComponent();
             Name = name;
             idprod.Content = id;
-            KOL = kol;
+            PanelAdmin.Visibility = type == "AD" ? Visibility.Visible : Visibility.Hidden;
             command.Connection = connection;
             connection.Open();
             command.CommandText = "SELECT MAX(`№_Чека`) FROM чек";
@@ -27,7 +25,7 @@ namespace WpfApp2
             connection.Close();
         }
 
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=I5EPebrqPsJBVM7lPoa2;database=danya");
+        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=1234;database=danya");
         DataBase db = new DataBase();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         DataTable g = new DataTable();

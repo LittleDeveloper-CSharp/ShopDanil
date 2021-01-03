@@ -27,7 +27,7 @@ namespace WpfApp2
         }
 
         
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=I5EPebrqPsJBVM7lPoa2;database=danya");
+        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=1234;database=danya");
         DataBase db = new DataBase();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         DataTable g = new DataTable();
@@ -57,18 +57,16 @@ namespace WpfApp2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            db.openConnection();
-
-            DataTable dt = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter("Delete From `Danya`.`товар`", db.GetConnection());
-            adapter.Fill(dt);
-            DGT.ItemsSource = dt.AsDataView();
-
-            MessageBox.Show("товар удален");
-
-            
-
-            db.closeConnection();
+            if (DGT.SelectedIndex != -1) 
+            {
+                db.openConnection();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter adapter = new MySqlDataAdapter($"Delete From `Danya`.`товар` WHERE = '{(DGT.SelectedItem as DataRowView)[0]}'", db.GetConnection());
+                adapter.Fill(dt);
+                DGT.ItemsSource = dt.AsDataView();
+                MessageBox.Show("товар удален");
+                db.closeConnection();
+            } 
         }
     }
 }

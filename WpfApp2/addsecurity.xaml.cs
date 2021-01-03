@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using MySql.Data.MySqlClient;
 using System.Data;
 
@@ -26,7 +14,7 @@ namespace WpfApp2
             InitializeComponent();
         }
 
-        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=I5EPebrqPsJBVM7lPoa2;database=danya");
+        MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;username=root;password=1234;database=danya");
         DataBase db = new DataBase();
         MySqlDataAdapter adapter = new MySqlDataAdapter();
         DataTable g = new DataTable();
@@ -34,7 +22,7 @@ namespace WpfApp2
         private void DGO_Loaded(object sender, RoutedEventArgs e)
         {
             DataTable dt = new DataTable();
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM danya.охана", db.GetConnection());
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM danya.охрана", db.GetConnection());
             adapter.Fill(dt);
             DGO.ItemsSource = dt.AsDataView();
         }
@@ -43,7 +31,7 @@ namespace WpfApp2
         {
             db.openConnection();
 
-            command = new MySqlCommand("INSERT INTO `Danya`.`охрана`(`ФИО`,`Дата_рождения`,`Дата поступления`,`Зарплата`,`Телефон`) Values (@NT,@DR,@DP,@ZP,@TEL)", db.GetConnection());
+            command = new MySqlCommand("INSERT INTO `Danya`.`охрана`(`ФИО`,`Дата_рождения`,`Дата_поступления`,`Зарплата`,`Телефон`) Values (@NT,@DR,@DP,@ZP,@TEL)", db.GetConnection());
             command.Parameters.Add("@NT", MySqlDbType.VarChar).Value = Fio.Text;
             command.Parameters.Add("@DR", MySqlDbType.VarChar).Value = DateR.Text;
             command.Parameters.Add("@DP", MySqlDbType.VarChar).Value = DateP.Text;
@@ -51,8 +39,20 @@ namespace WpfApp2
             command.Parameters.Add("@TEL", MySqlDbType.VarChar).Value = Tel.Text;
             command.ExecuteNonQuery();
             MessageBox.Show("охранник добавлен");
-
+            DGO_Loaded(null, null);
             db.closeConnection();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(DGO.SelectedIndex != -1)
+            {
+                command = new MySqlCommand($"DELETE FROM `охрана` WHERE `id_Охраны` = '{(DGO.SelectedItem as DataRowView)[0]}'", db.GetConnection());
+                db.openConnection();
+                command.ExecuteNonQuery();
+                db.closeConnection();
+                DGO_Loaded(null, null);
+            }
         }
     }
 }

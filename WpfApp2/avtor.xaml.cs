@@ -45,7 +45,6 @@ namespace WpfApp2
         DataTable table = new DataTable();
 
         MySqlDataAdapter adapter = new MySqlDataAdapter();
-        int kol;
         private void Vhod_Click(object sender, RoutedEventArgs e)
         {
             String logUser = loginTextBox.Text;
@@ -67,8 +66,8 @@ namespace WpfApp2
             {
                 string name = (string)table.Rows[0]["ФИО"];
                 string id = table.Rows[0]["id_Продавца"].ToString();
-
-                glavn gl = new glavn(name,id,kol);
+                string type = table.Rows[0]["Тип сотрудника_Код"].ToString();
+                glavn gl = new glavn(name,id, type);
                 gl.Show();
                 this.Close();
                 
