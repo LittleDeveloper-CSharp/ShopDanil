@@ -191,10 +191,6 @@ namespace WpfApp2
             labelkolvo.Content = Kolv.Text;
         }
 
-        int kol;
-        int lok;
-        string name;
-        string id;
         private void AddZaiav_Click(object sender, RoutedEventArgs e)
         {
             if (!IsEdit)

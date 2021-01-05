@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <Rectangle Fill="AliceBlue"/>
-        <Button x:Name="Vhod" Content="Авторизоваться" Margin="10,489,242,0" FontSize="18" Height="58" VerticalAlignment="Top" OpacityMask="#FF9E4141" Foreground="#FF744545" Click="Vhod_Click" />
+        <Button x:Name="Vhod" Content="Авторизоваться" Margin="126,489,126,0" FontSize="18" Height="58" VerticalAlignment="Top" OpacityMask="#FF9E4141" Foreground="#FF744545" Click="Vhod_Click" />
         <Label Content="Авторизация" Margin="89,17,94,468" FontSize="36"/>
         <Rectangle Fill="Azure" Margin="10,103,10,82" />
         <Label Content="Логин" x:Name="login" Margin="56,132,231,357" FontSize="36"/>
@@ -25,7 +25,6 @@
         <TextBox x:Name="loginTextBox" Margin="199,147,8,369" TextWrapping="Wrap" FontSize="24" GotFocus="loginTextBox_GotFocus" LostFocus="loginTextBox_LostFocus"/>
         <PasswordBox x:Name="parolTextBox" Margin="205,341,10,177" FontSize="24" LostFocus="parolTextBox_LostFocus"/>
         <Button Content="x" x:Name="close" Margin="0,10,8,506" Background="AliceBlue" Click="close_Click" FontSize="24" HorizontalAlignment="Right" Width="39" />
-        <Button Content="Регистрация" HorizontalAlignment="Left"  Height="58" Foreground="#FF744545" Margin="230,489,0,0" VerticalAlignment="Top" Width="186" FontSize="18" Click="Button_Click"/>
         <TextBox x:Name="textbox" HorizontalAlignment="Left" Height="42" Margin="200,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" LostFocus="TextBox_LostFocus" GotFocus="TextBox_GotFocus" FontSize="24"/>
 
 

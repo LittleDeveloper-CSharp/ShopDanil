@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows;
 
 namespace WpfApp2
 {
@@ -61,9 +49,9 @@ namespace WpfApp2
             {
                 db.openConnection();
                 DataTable dt = new DataTable();
-                MySqlDataAdapter adapter = new MySqlDataAdapter($"Delete From `Danya`.`товар` WHERE = '{(DGT.SelectedItem as DataRowView)[0]}'", db.GetConnection());
-                adapter.Fill(dt);
-                DGT.ItemsSource = dt.AsDataView();
+                MySqlCommand command = new MySqlCommand($"Delete From `товар` WHERE `id_Товар` = '{(DGT.SelectedItem as DataRowView)[0]}'", db.GetConnection());
+                command.ExecuteNonQuery();
+                DGT_Loaded(null, null);
                 MessageBox.Show("товар удален");
                 db.closeConnection();
             } 

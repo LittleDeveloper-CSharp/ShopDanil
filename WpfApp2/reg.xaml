@@ -13,7 +13,7 @@
 
         <Rectangle Fill="AliceBlue" Margin="0,0,3,624" RenderTransformOrigin="0.5,0.5"/>
 
-        
+
         <Label Content="Регистрация" Margin="142,10,137,624" FontSize="48"/>
         <Button Content="Зарегестрироваться" Margin="125,627,100,25" Background="#FFEDFFF7" OpacityMask="#FF9E4141" Foreground="#FF744545" FontSize="16" Click="Button_Click_1"/>
         <Label Content="Логин" Margin="0,121,400,537" FontSize="36"/>

@@ -9,19 +9,24 @@ namespace WpfApp2
 {
     public partial class glavn : Window
     {
-        int id; 
 
+        //Убейте меня, я потерялся
+
+        //Пусть мама услышит,
+        //Пусть мама придет,
+        //Пусть мама меня непременно найдет! 
+        string name;
         public glavn(string name, string id, string type)
         {
             InitializeComponent();
-            Name = name;
+            this.name = name;
             idprod.Content = id;
             PanelAdmin.Visibility = type == "AD" ? Visibility.Visible : Visibility.Hidden;
+            post.Content = type == "AD" ? "Супер пользователь" : "Простой пользователь";
             command.Connection = connection;
             connection.Open();
             command.CommandText = "SELECT MAX(`№_Чека`) FROM чек";
-            int idOrder = 0;
-            nomchek.Content = int.TryParse(command.ExecuteScalar().ToString(), out idOrder) ? idOrder + 1 : 1;
+            nomchek.Content = int.TryParse(command.ExecuteScalar().ToString(), out int idOrder) ? idOrder + 1 : 1;
             connection.Close();
         }
 
@@ -55,7 +60,7 @@ namespace WpfApp2
 
         private void lbName_Loaded(object sender, RoutedEventArgs e)
         {
-            lbName.Content = Name;
+            lbName.Content = name;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -68,7 +73,7 @@ namespace WpfApp2
             {
                 Title = "Добавление",
                 ID = idprod.Content.ToString(),
-                SellerName = Name
+                SellerName = name
             };
             Hide();
             add.ShowDialog();
@@ -130,18 +135,14 @@ namespace WpfApp2
                 {
                     Title = "Изменение",
                     ID = idprod.Content.ToString(),
-                    SellerName = Name
+                    SellerName = name
 
                 };
-                izm.Show();
+                Hide();
+                izm.ShowDialog();
+                Show();
                 DGZ_Loaded_1(null, null);
-            
             }
-        }
-
-        private void obn_Click(object sender, RoutedEventArgs e)
-        {
-            DGZ_Loaded_1(null, null);
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -159,22 +160,25 @@ namespace WpfApp2
         private void dobtov_Click(object sender, RoutedEventArgs e)
         {
             Addtovar at = new Addtovar();
-            at.Show();
-            this.Close();
+            Hide();
+            at.ShowDialog();
+            Show();
         }
 
         private void spsotr_Click(object sender, RoutedEventArgs e)
         {
             Addsotr ads = new Addsotr();
-            ads.Show();
-            this.Close();
+            Hide();
+            ads.ShowDialog();
+            Show();
         }
 
         private void oxr_Click(object sender, RoutedEventArgs e)
         {
             addsecurity adss = new addsecurity();
-            adss.Show();
-            this.Close();
+            Hide();
+            adss.ShowDialog();
+            Show();
         }
     }
 }

@@ -1,34 +1,96 @@
 ﻿<Window x:Class="WpfApp2.Addsotr"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
         Title="Addsotr" Height="450" Width="1178">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Width" Value="310"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="TextWrapping" Value="NoWrap"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <Label Content="Логин"/>
+                <TextBox x:Name="LogTB" GotFocus="LogTB_GotFocus" LostFocus="LogTB_LostFocus"/>
+            </StackPanel>
 
-        <Label Content="Регистрация" Margin="142,10,137,409" FontSize="48"/>
-        <Label Content="Логин" Margin="0,121,400,297" FontSize="36"/>
-        <Label Content="Пароль" Margin="57,8,388,411" FontSize="36"/>
-        <Label Content="ФИО" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="50" Width="95" FontSize="36"/>
-        <TextBox x:Name="Fio" HorizontalAlignment="Left" Height="32" Margin="134,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213"  FontSize="20"/>
-        <Label Content="Дата рождения" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" Height="54" Width="280" FontSize="36"/>
-        <Label Content="Дата поступления" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Height="54" Width="304" FontSize="36"/>
-        <Label Content="Адрес" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" Height="50" Width="124" FontSize="36"/>
-        <Label Content="Телефон" HorizontalAlignment="Left" Margin="10,348,0,0" VerticalAlignment="Top" Height="56" Width="160" FontSize="36"/>
-        <TextBox x:Name="DateR" HorizontalAlignment="Left" Height="28" Margin="290,121,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"  FontSize="20"/>
-        <TextBox x:Name="DateP" HorizontalAlignment="Left" Height="28" Margin="319,224,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"  FontSize="20"/>
-        <TextBox x:Name="Adr" HorizontalAlignment="Left" Height="28" Margin="154,317,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"  FontSize="20"/>
-        <TextBox x:Name="Tel" HorizontalAlignment="Left" Height="28" Margin="175,376,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210" FontSize="20"/>
-        <DataGrid x:Name="DGS" HorizontalAlignment="Left" Height="300" Margin="574,45,0,0" VerticalAlignment="Top" Width="586" Loaded="DGS_Loaded" />
-        <Button Content="Добавить" HorizontalAlignment="Left" Margin="574,373,0,0" VerticalAlignment="Top" Width="162" Height="28" Click="Button_Click"/>
-        <Button Content="Удалить" HorizontalAlignment="Left" Margin="998,373,0,0" VerticalAlignment="Top" Width="162" Height="28" Click="Button_Click_1"/>
-        <Label Content="зп" HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Height="50" Width="124" FontSize="36"/>
-        <TextBox x:Name="ZP" HorizontalAlignment="Left" Height="28" Margin="154,263,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="210"  FontSize="20"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <Label Content="Пароль"/>
+                <TextBox x:Name="Pass" GotFocus="Pass_GotFocus" LostFocus="Pass_LostFocus"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <Label Content="ФИО"/>
+                <TextBox x:Name="Fio" GotFocus="NameTB_GotFocus" LostFocus="NameTB_LostFocus_1"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <Label Content="Дата рождения"/>
+                <TextBox x:Name="DateR" GotFocus="DateR_GotFocus" LostFocus="DateR_LostFocus"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Orientation="Horizontal">
+                <Label Content="Дата поступления"/>
+                <TextBox x:Name="DateP" GotFocus="DateP_GotFocus" LostFocus="DateP_LostFocus"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="5" Orientation="Horizontal">
+                <Label Content="Адрес"/>
+                <TextBox x:Name="Adr" GotFocus="Adr_GotFocus" LostFocus="Adr_LostFocus"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="6" Orientation="Horizontal">
+                <Label Content="Телефон"/>
+                <TextBox x:Name="Tel" GotFocus="Tel_GotFocus" LostFocus="Tel_LostFocus"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="7" Orientation="Horizontal">
+                <Label Content="Зарплата"/>
+                <TextBox x:Name="ZP" GotFocus="ZP_GotFocus" LostFocus="ZP_LostFocus"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="8" Orientation="Horizontal">
+                <Label Content="Тип сотрудника"/>
+                <ComboBox x:Name="TypeEmp" SelectedIndex="0" FontSize="20" Width="200">
+                    <ComboBoxItem Content="Просто сотрудник"/>
+                    <ComboBoxItem Content="Супер сотрудник"/>
+                </ComboBox>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <DataGrid x:Name="DGS" HorizontalAlignment="Left" Height="300" Margin="0,45,0,0" VerticalAlignment="Top" Width="586" Loaded="DGS_Loaded" />
+            <Button Content="Добавить" HorizontalAlignment="Left" Margin="0,373,0,0" VerticalAlignment="Top" Width="162" Height="28" Click="Button_Click" />
+            <Button Content="Удалить" HorizontalAlignment="Left" Margin="420,373,0,0" VerticalAlignment="Top" Width="162" Height="28" Click="Button_Click_1" />
+        </Grid>
     </Grid>
 </Window>
